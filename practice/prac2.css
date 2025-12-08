@@ -1,0 +1,90 @@
+.head,.foot{
+height: 100px;
+width: 100%;
+}
+
+.head{
+    background-color: bisque;
+    border: 3px solid black ;
+    
+}
+.foot{
+    background-color: burlywood;
+    color: black;
+    border: 3px solid black ;
+    justify-content: space-around;
+  
+    display: flex;
+   
+}
+
+.main{
+    background-color: bisque;
+    opacity: 1;
+    border: 3px solid black ;
+    height: 600px;
+    width: 100%;
+    color: black;
+}
+ #nav{
+    height: 60px;
+    background-color: black;
+    border: 5px solid rgb(255, 255, 255);
+    width: 99.4%; 
+    
+ }
+  #navin{
+    margin: 0px 180px 0px 0px;
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+    text-decoration: none;
+ }
+ .mainin{
+    height: 100px;
+    width: 300px;
+    text-align: center;
+   background-image: url(bg.jpg);
+   left: 1210px;
+    position: fixed;
+    z-index: 1;
+ }
+ .fe{
+    background-color: rgb(212, 128, 19);
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ }
+
+ .fein{
+    background-color: aquamarine;
+    height: 50px;
+    width: 50px;
+ }
+
+ 
+@media (max-width:300px){
+.main{
+    background-color: green;
+}
+}
+
+@media (min-width:300px) and (max-width:400px){
+.main{
+    background-color: rgb(213, 66, 90);
+}
+
+}
+@media (min-width:400px) and (max-width:600px){
+.main{
+    background-color: red;
+}
+
+}
+@media (min-width:600px){
+.main{
+    background-color: rgb(20, 3, 98);
+}
+}

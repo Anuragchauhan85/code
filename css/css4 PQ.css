@@ -1,0 +1,35 @@
+
+
+.d1{
+    height: 80px;
+    color: red;
+    width: 80px;
+    background-color: rgb(167, 107, 34);
+    opacity: 1;
+    transition:margin-top 2s ease-in 0.2s;
+    margin-top: 10px;
+    
+    transform: rotate(45deg);
+    transform: scale(2);
+    display: inline block;
+    
+}
+.d1:hover{background-color: black; 
+    margin-top: 200px;
+    margin: 100px;
+border-radius: 50%;
+display: inline block;
+}
+
+.d2{background-color: aquamarine;
+    transform: skew(45deg);
+    box-shadow: 2px 2px 10px darkgreen;
+    display: inline block;
+
+}
+.image{height: 100px;
+width: 100px;
+background-color: blueviolet;padding-left: 300px;
+background-image: url(bg.jpg);
+background-size: contain; 
+display: inline block;}

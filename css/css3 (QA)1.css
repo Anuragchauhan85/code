@@ -1,0 +1,6 @@
+
+li{display: inline;}
+.inner{height:100px;width:100px;background-color:pink;border:2pxsolidblack;border-radius:50%;display:inline-block;}
+#outer{
+    height:150px;width:350px;background-color:grey;border:5pxdottedblack;margin:20px1em40px2em;padding:1em
+}

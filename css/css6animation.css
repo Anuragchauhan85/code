@@ -1,0 +1,21 @@
+.box{
+    height: 100px;
+    width:300px ;
+    background-color: aquamarine;
+  
+    animation: widthanimate;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-delay:0s ;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    
+}
+
+@keyframes widthanimate{
+    from{width: 10px;
+    background-color: aquamarine;}
+    to{width: 400px; 
+    background-color: aqua;
+    border-radius: 50%;}
+}
