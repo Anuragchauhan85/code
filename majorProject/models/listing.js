@@ -10,25 +10,29 @@ const listingSchema = new schema({
   description: String,
   image: {
     filename: { type: String, default: "listingimage" },
-      url: {
-          type:String,
-          default:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s",
-          set: (v) =>
-              v === ""
-                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s"
-                  : v,
-      }
-     },
+    url: {
+      type: String,
+      default:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s",
+      set: (v) =>
+        v === ""
+          ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s"
+          : v,
+    },
+  },
   price: Number,
   location: String,
   country: String,
   reviews: [
     {
       type: schema.Types.ObjectId,
-      ref:"Review",
-    }
-  ]
+      ref: "Review",
+    },
+  ],
+  owner: {
+    type: schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
