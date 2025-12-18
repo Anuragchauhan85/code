@@ -3,9 +3,10 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
 const { isloggedin, isOwner,validateListing } = require("../middleware.js");
-
 const listingController = require("../controllers/listings.js");
-
+const multer = require("multer");
+const { storage } = require("../cloudconfig.js");
+const upload = multer({ storage });
 
 router
   .route("/")
@@ -14,6 +15,7 @@ router
   //route to create new listing
   .post(
     isloggedin,
+    upload.single("listing[image]"),
     validateListing,
     wrapAsync(listingController.createListing)
   );
@@ -31,15 +33,12 @@ router
   .put(
     isloggedin,
     isOwner,
+    upload.single("listing[image]"),
     validateListing,
     wrapAsync(listingController.updateListing)
   )
   //route to delete listings
-  .delete(
-    isloggedin,
-    isOwner,
-    wrapAsync(listingController.deleteListing)
-  );
+  .delete(isloggedin, isOwner, wrapAsync(listingController.deleteListing));
 
 
 //route to edit listing

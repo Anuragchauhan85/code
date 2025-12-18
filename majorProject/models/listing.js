@@ -9,16 +9,8 @@ const listingSchema = new schema({
   },
   description: String,
   image: {
-    filename: { type: String, default: "listingimage" },
-    url: {
-      type: String,
-      default:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s",
-      set: (v) =>
-        v === ""
-          ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5UtekBF2OHTxfnDj4RuFNOtcDHHysCq8o7g&s"
-          : v,
-    },
+    url: String,
+    filename:String,
   },
   price: Number,
   location: String,
