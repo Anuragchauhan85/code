@@ -56,9 +56,9 @@ const sessionOptions = {
   },
 };
 
-app.get("/", (req, res) => {
-  res.send("hii i am root page");
-});
+// app.get("/", (req, res) => {
+//   res.send("hii i am root page");
+// });
 
 
 

@@ -1,9 +1,58 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-  <h1>All listings</h1>
-  <!-- <form method="get" action="/listings/new">
-        <button> Create a new listing </button>
-    </form> -->
+  <style>
+    #filters{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .filter{
+      text-align: center;
+      margin: 2rem;
+      opacity: 0.7;
+    }
+    .filter:hover{
+      opacity: 1;
+      cursor: pointer;
+    }
+  </style>
+    <div id="filters">
+        <div class="filter">
+           <div><i class="fa-solid fa-fire"></i></div>
+           <P>Trending</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-bed"></i></div>
+           <P>Rooms</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-mountain-city"></i></div>
+           <P>Iconic cities</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-mountain"></i></div>
+           <P>Mountains</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-brands fa-fort-awesome"></i></div>
+           <P>Castles</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-person-swimming"></i></div>
+           <P>Amazing Pools</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-campground"></i></div>
+           <P>Camping</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-solid fa-tractor"></i></div>
+           <P>Farms</P>
+        </div>
+        <div class="filter">
+           <div><i class="fa-regular fa-snowflake"></i></div>
+           <P>Arctic</P>
+        </div>
+    </div>
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
     <% for( let listing of allListing ) { %>
     <a href="/listings/<%= listing._id %>" class="listing">
