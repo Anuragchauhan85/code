@@ -169,4 +169,7 @@ body{
        color: #555;
      }
 
-    
+    #map{height: 400px;
+    width: 100vh;
+    border-radius: 14px;
+}

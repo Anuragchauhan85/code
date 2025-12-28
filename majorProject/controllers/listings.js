@@ -36,15 +36,44 @@ module.exports.showListing = async (req, res) => {
 
 
 module.exports.createListing = async (req, res, next) => {
+  try {
+    const place = req.body.listing.location;
+    const MAPTILER_KEY = process.env.MAP_TOKEN;
+
+    const geoUrl = `https://api.maptiler.com/geocoding/${encodeURIComponent(
+      place
+    )}.json?key=${MAPTILER_KEY}`;
+    const response = await fetch(geoUrl);
+    const data = await response.json();
+
     let url = req.file.path;
     let filename = req.file.filename;
+
     const newlisting = new Listing(req.body.listing);
     newlisting.owner = req.user._id;
     newlisting.image = { url, filename };
-    await newlisting.save();
+
+    // ✅ Fix: assign full GeoJSON object
+    if (data.features && data.features.length > 0) {
+      const coords = data.features[0].geometry.coordinates; // [lng, lat]
+      newlisting.geometry = {
+        type: "Point",
+        coordinates: coords,
+      };
+    } else {
+      req.flash("error", "Location not found");
+      return res.redirect("/listings/new");
+    }
+
+    let savedListing = await newlisting.save();
+    console.log(savedListing);
+
     req.flash("success", "New Listing Created");
     res.redirect("/listings");
-}
+  } catch (err) {
+    next(err);
+  }
+};
   
 
 module.exports.editListing=async (req, res) => {
